@@ -12,7 +12,6 @@ opencv-python = "*"
 numpy = "*"
 pillow = "*"
 psycopg2 = "*"
-pfinyg = "*"
 
 [requires]
 python_version = "3.7"
