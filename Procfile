@@ -1,1 +1,1 @@
-web: gunicorn pfinyg.wsgi
+web: gunicorn opencv_converter.wsgi
