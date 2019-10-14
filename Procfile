@@ -1,1 +1,1 @@
-web: gunicorn opencv_converter.wsgi
+web: gunicorn opencv_converter.wsgi --log-file -
