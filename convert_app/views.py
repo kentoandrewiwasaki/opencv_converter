@@ -5,32 +5,32 @@ import cv2
 import numpy as np
 from django.conf import settings
 from django.views.decorators.cache import never_cache
-from django.db.models.base import ObjectDoesNotExist
+from django.core.exceptions import ObjectDoesNotExist
 
 def indexfunc(request):
     try:
         gray_obj = GrayModel.objects.get(id = GrayModel.objects.latest('id').id)
-    except GrayModel.ObjectDoesNotExist:
+    except ObjectDoesNotExist:
         gray_obj = ""
 
     try:
         anime_obj = AnimeModel.objects.get(id = AnimeModel.objects.latest('id').id)
-    except AnimeModel.ObjectDoesNotExist:
+    except ObjectDoesNotExist:
         anime_obj = ""
 
     try:
         faceread_obj = FaceReadModel.objects.get(id = FaceReadModel.objects.latest('id').id)
-    except FaceReadModel.ObjectDoesNotExist:
+    except ObjectDoesNotExist:
         faceread_obj = ""
 
     try:
         mosaic_obj = MosaicModel.objects.get(id = MosaicModel.objects.latest('id').id)
-    except MosaicModel.ObjectDoesNotExist:
+    except ObjectDoesNotExist:
         mosaic_obj = ""
 
     try:
         facemosaic_obj = FaceMosaicModel.objects.get(id = FaceMosaicModel.objects.latest('id').id)
-    except FaceMosaicModel.ObjectDoesNotExist:
+    except ObjectDoesNotExist:
         facemosaic_obj = ""
 
     return render(request, 'index.html', {
