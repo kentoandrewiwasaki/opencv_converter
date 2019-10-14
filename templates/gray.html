@@ -5,17 +5,30 @@
 
 {% block content %}
   <h1>グレースケール化</h1>
+    <p>画像をグレースケール化することができます。</p>
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">変換</button>
   </form>
-  {% if gray_obj.image.url %}
-    <td><img src="{{ gray_obj.image.url }}" width=700 height=auto /></td>
+
+  {% if gray_obj == "" %}
+    <br>
+    <h3>例</h3>
+    <td>
+      <img src="/static/gray/before.jpg" width=700 height=auto />
+      <img src="/static/gray/gray.jpg" width=700 height=auto />
+    </td>
+  {% else %}
+  <br>
+  <h3>変換結果</h3>
+    <td>
+      <img src="{{ gray_obj.image.url }}" width=700 height=auto />
+      <img src="{{ gray_obj.gray_image.url }}" width=700 height=auto />
+    </td>
   {% endif %}
-  {% if gray_obj.gray_image.url %}
-    <td><img src="{{ gray_obj.gray_image.url }}" width=700 height=auto /></td>
-  {% endif %}
+
+
 {% endblock content %}
 
 
