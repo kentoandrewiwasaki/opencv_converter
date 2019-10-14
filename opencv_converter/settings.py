@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import cloudinary
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -134,6 +135,12 @@ CLOUDINARY_STORAGE = {
     'API_KEY': '389637982885264',
     'API_SECRET': 'KNnl65UbPlhTkA9gkct4d4W44Hs'
 }
+
+cloudinary.config( 
+  cloud_name = 'hwep6ds0z', 
+  api_key = '389637982885264',
+  api_secret = 'KNnl65UbPlhTkA9gkct4d4W44Hs' 
+)
 
 #CSSファイルの保存場所の指定
 STATICFILES_DIRS = [

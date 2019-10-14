@@ -1,5 +1,4 @@
 from django.db import models
-from cloudinary.models import CloudinaryField
 
 class GrayModel(models.Model):
     image = models.ImageField(upload_to="input/gray")

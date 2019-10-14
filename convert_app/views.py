@@ -8,6 +8,13 @@ from django.views.decorators.cache import never_cache
 from django.core.exceptions import ObjectDoesNotExist
 import pdb
 
+import cloudinary
+import cloudinary.uploader
+
+import numpy as np
+import urllib.request
+import cv2
+
 
 def indexfunc(request):
     try:
@@ -70,6 +77,42 @@ def gray(input_path, output_path):
     img = cv2.imread(input_path)
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     cv2.imwrite(output_path, img_gray)
+
+# def grayfunc(request):
+#     if request.method == 'POST':
+#         form = GrayForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('gray')
+#     else:
+#         form = GrayForm()
+#         try:
+#             gray_obj = GrayModel.objects.get(id = GrayModel.objects.latest('id').id)
+#             input_path = gray_obj.image.url
+#             url_to_image(input_path)
+#         except:
+#             gray_obj = ""
+#     return render(request, 'gray.html', {
+#         'form': form,
+#         'gray_obj': gray_obj,
+#     })
+
+# def url_to_image(input_path):
+#     # download the image, convert it to a NumPy array, and then read
+#     # # it into OpenCV format
+#     resp = urllib.request.urlopen(input_path)
+#     image = np.asarray(bytearray(resp.read()), dtype="uint8")
+#     image = cv2.imdecode(image, cv2.IMREAD_COLOR)
+#     # return the image
+#     # return image
+
+#     img_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+#     cv2.imwrite(input_path, img_gray)
+
+# def gray(input_path):
+#     img = cv2.imread(input_path)
+#     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+#     cv2.imwrite(img_gray)
 
 ##################################################################################################
 
