@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block customcss %}
+{% endblock customcss %}
+
+{% block content %}
+  <h1>アニメ化</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">変換</button>
+  </form>
+  {% if anime_obj.image.url %}
+    <td><img src="{{ anime_obj.image.url }}" width=700 height=auto /></td>
+  {% endif %}
+  {% if anime_obj.anime_image.url %}
+    <td><img src="{{ anime_obj.anime_image.url }}" width=700 height=auto /></td>
+  {% endif %}
+{% endblock content %}
