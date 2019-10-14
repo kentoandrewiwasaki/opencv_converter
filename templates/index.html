@@ -8,7 +8,11 @@
 {% block content %}
   <div class="row1_card">
     <div class="card" style="width: 18rem;">
+      {% if gray_obj == "" %}
+        <img src="/static/gray/gray.jpg" class="card-img-top" width=286 height=229>
+      {% else %}
         <img src="{{ gray_obj.gray_image.url }}" class="card-img-top" width=286 height=229>
+      {% endif %}
         <div class="card-body">
           <h5 class="card-title">グレースケール化</h5>
           <p class="card-text"></p>
@@ -16,7 +20,11 @@
         </div>
     </div>
     <div class="card" style="width: 18rem;">
+      {% if anime_obj == "" %}
+        <img src="/static/anime/anime.jpg" class="card-img-top" width=286 height=229>
+      {% else %}
         <img src="{{ anime_obj.anime_image.url }}" class="card-img-top" width=286 height=229>
+      {% endif %}
         <div class="card-body">
           <h5 class="card-title">アニメ化</h5>
           <p class="card-text"></p>
@@ -24,7 +32,11 @@
         </div>
     </div>
     <div class="card" style="width: 18rem;">
+      {% if faceread_obj == "" %}
+        <img src="/static/faceread/faceread.jpg" class="card-img-top" width=286 height=229>
+      {% else %}
         <img src="{{ faceread_obj.faceread_image.url }}" class="card-img-top" width=286 height=229>
+      {% endif %}
         <div class="card-body">
           <h5 class="card-title">顔認証</h5>
           <p class="card-text"></p>
@@ -34,7 +46,11 @@
   </div>
   <div class="row2_card">
     <div class="card" style="width: 18rem;">
-      <img src="{{ mosaic_obj.mosaic_image.url }}" class="card-img-top" width=286 height=229>
+      {% if mosaic_obj == "" %}
+        <img src="/static/mosaic/mosaic.jpg" class="card-img-top" width=286 height=229>
+      {% else %}
+        <img src="{{ mosaic_obj.mosaic_image.url }}" class="card-img-top" width=286 height=229>
+      {% endif %}
         <div class="card-body">
           <h5 class="card-title">モザイク化</h5>
           <p class="card-text"></p>
@@ -42,7 +58,11 @@
         </div>
     </div>
     <div class="card" style="width: 18rem;">
-      <img src="{{ facemosaic_obj.facemosaic_image.url }}" class="card-img-top" width=286 height=229>
+      {% if facemosaic_obj == "" %}
+        <img src="/static/facemosaic/facemosaic.jpg" class="card-img-top" width=286 height=229>
+      {% else %}
+        <img src="{{ facemosaic_obj.facemosaic_image.url }}" class="card-img-top" width=286 height=229>
+      {% endif %}
         <div class="card-body">
           <h5 class="card-title">顔のモザイク化</h5>
           <p class="card-text"></p>
