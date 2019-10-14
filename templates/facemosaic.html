@@ -5,15 +5,27 @@
 
 {% block content %}
   <h1>顔のモザイク化</h1>
+    <p>画像上の顔を認識し、モザイク処理することができます。</p>
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">変換</button>
   </form>
-  {% if facemosaic_obj.image.url %}
-    <td><img src="{{ facemosaic_obj.image.url }}" width=700 height=auto /></td>
+
+  {% if facemosaic_obj == "" %}
+    <br>
+    <h3>例</h3>
+    <td>
+      <img src="/static/facemosaic/before.jpg" width=700 height=auto />
+      <img src="/static/facemosaic/facemosaic.jpg" width=700 height=auto />
+    </td>
+  {% else %}
+    <br>
+    <h3>変換結果</h3>
+      <td>
+        <img src="{{ facemosaic_obj.image.url }}" width=700 height=auto />
+        <img src="{{ facemosaic_obj.facemosaic_image.url }}" width=700 height=auto />
+      </td>
   {% endif %}
-  {% if facemosaic_obj.facemosaic_image.url %}
-    <td><img src="{{ facemosaic_obj.facemosaic_image.url }}" width=700 height=auto /></td>
-  {% endif %}
+
 {% endblock content %}
