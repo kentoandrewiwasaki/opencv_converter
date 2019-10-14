@@ -12,6 +12,7 @@ opencv-python = "*"
 numpy = "*"
 pillow = "*"
 psycopg2 = "*"
+django-pdb = "*"
 
 [requires]
 python_version = "3.7"

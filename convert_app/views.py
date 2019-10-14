@@ -6,6 +6,8 @@ import numpy as np
 from django.conf import settings
 from django.views.decorators.cache import never_cache
 from django.core.exceptions import ObjectDoesNotExist
+import pdb
+
 
 def indexfunc(request):
     try:
