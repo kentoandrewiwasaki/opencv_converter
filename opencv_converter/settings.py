@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'convert_app',
-    'cloudinary',
-    'cloudinary_storage',
+    # 'cloudinary',
+    # 'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -128,19 +128,22 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+##Cloudinaryの設定
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'hwep6ds0z',
-    'API_KEY': '389637982885264',
-    'API_SECRET': 'KNnl65UbPlhTkA9gkct4d4W44Hs'
-}
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-cloudinary.config( 
-  cloud_name = 'hwep6ds0z', 
-  api_key = '389637982885264',
-  api_secret = 'KNnl65UbPlhTkA9gkct4d4W44Hs' 
-)
+
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': 'hwep6ds0z',
+#     'API_KEY': '389637982885264',
+#     'API_SECRET': 'KNnl65UbPlhTkA9gkct4d4W44Hs'
+# }
+
+# cloudinary.config( 
+#   cloud_name = 'hwep6ds0z', 
+#   api_key = '389637982885264',
+#   api_secret = 'KNnl65UbPlhTkA9gkct4d4W44Hs' 
+# )
 
 #CSSファイルの保存場所の指定
 STATICFILES_DIRS = [
