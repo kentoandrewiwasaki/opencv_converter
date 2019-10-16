@@ -16,12 +16,10 @@ import cloudinary
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '5h!g_49lt6yw7ux&xv_2v23tj##3tjfub^6n#a(%^52!j3-irn'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -126,7 +124,7 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #CSSファイルの保存場所の指定
 STATICFILES_DIRS = [
@@ -142,23 +140,6 @@ MEDIA_URL = "/media/"
 LOGIN_URL = "login"
 
 CASCADE_FILE_PATH = os.path.join(BASE_DIR, 'haarcascade_frontalface_default.xml')
-
-
-###Cloudinaryの設定
-
-# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME': 'hwep6ds0z',
-#     'API_KEY': '389637982885264',
-#     'API_SECRET': 'KNnl65UbPlhTkA9gkct4d4W44Hs'
-# }
-
-# cloudinary.config( 
-#   cloud_name = 'hwep6ds0z', 
-#   api_key = '389637982885264',
-#   api_secret = 'KNnl65UbPlhTkA9gkct4d4W44Hs' 
-# )
 
 DEBUG = False
 
