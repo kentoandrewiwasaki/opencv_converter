@@ -13,8 +13,6 @@ import cloudinary.uploader
 
 import numpy as np
 import urllib.request
-import cv2
-
 
 def indexfunc(request):
     try:
@@ -63,7 +61,6 @@ def grayfunc(request):
         try:
             gray_obj = GrayModel.objects.get(id = GrayModel.objects.latest('id').id)
             input_path = settings.BASE_DIR + gray_obj.image.url
-            input_path = settings.BASE_DIR + gray_obj.image.url
             output_path = settings.BASE_DIR + "/media/output/gray/gray.jpg"
             gray(input_path, output_path)
         except:
@@ -89,7 +86,10 @@ def gray(input_path, output_path):
 #         try:
 #             gray_obj = GrayModel.objects.get(id = GrayModel.objects.latest('id').id)
 #             input_path = gray_obj.image.url
-#             url_to_image(input_path)
+#             gray_obj.gray_image = cloudinary.uploader.upload_resource(input_path)
+#             # pdb.set_trace()
+#             output_path = gray_obj.gray_image.url
+#             url_to_image(output_path)
 #         except:
 #             gray_obj = ""
 #     return render(request, 'gray.html', {
@@ -97,22 +97,16 @@ def gray(input_path, output_path):
 #         'gray_obj': gray_obj,
 #     })
 
-# def url_to_image(input_path):
+# def url_to_image(output_path):
 #     # download the image, convert it to a NumPy array, and then read
 #     # # it into OpenCV format
-#     resp = urllib.request.urlopen(input_path)
+#     resp = urllib.request.urlopen(output_path)
 #     image = np.asarray(bytearray(resp.read()), dtype="uint8")
 #     image = cv2.imdecode(image, cv2.IMREAD_COLOR)
-#     # return the image
-#     # return image
 
 #     img_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-#     cv2.imwrite(input_path, img_gray)
-
-# def gray(input_path):
-#     img = cv2.imread(input_path)
-#     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-#     cv2.imwrite(img_gray)
+#     path = settings.BASE_DIR + "/media/output/gray/gray.jpg"
+#     cv2.imwrite(path, img_gray)
 
 ##################################################################################################
 
