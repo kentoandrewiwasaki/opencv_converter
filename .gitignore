@@ -103,6 +103,8 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+media/
+
 <your_venv>
 __pycache__
 staticfiles

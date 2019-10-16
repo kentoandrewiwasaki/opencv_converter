@@ -144,6 +144,22 @@ LOGIN_URL = "login"
 CASCADE_FILE_PATH = os.path.join(BASE_DIR, 'haarcascade_frontalface_default.xml')
 
 
+###Cloudinaryの設定
+
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': 'hwep6ds0z',
+#     'API_KEY': '389637982885264',
+#     'API_SECRET': 'KNnl65UbPlhTkA9gkct4d4W44Hs'
+# }
+
+# cloudinary.config( 
+#   cloud_name = 'hwep6ds0z', 
+#   api_key = '389637982885264',
+#   api_secret = 'KNnl65UbPlhTkA9gkct4d4W44Hs' 
+# )
+
 DEBUG = False
 
 try:
