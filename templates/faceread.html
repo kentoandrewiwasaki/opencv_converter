@@ -6,27 +6,28 @@
 {% block content %}
   <h1>顔認識</h1>
     <p>画像上の顔を認識・赤枠で検出することができます。</p>
+    <p>※大変申し訳ございませんが、本番環境では動作致しません。</p>
+    <p>また、画像によっては作動しない場合がございます。</p>
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">変換</button>
   </form>
 
-  {% if faceread_obj == "" %}
-    <br>
-    <h3>例</h3>
-    <td>
-      <img src="/static/faceread/before.jpg" width=700 height=auto />
-      <img src="/static/faceread/faceread.jpg" width=700 height=auto />
-    </td>
-  {% else %}
+  {% if faceread_obj != "" %}
     <br>
     <h3>変換結果</h3>
-      <td>
-        <img src="{{ faceread_obj.image.url }}" width=700 height=auto />
-        <img src="{{ faceread_obj.faceread_image.url }}" width=700 height=auto />
-      </td>
+    <td>
+      <img src="{{ faceread_obj.image.url }}" width=700 height=auto />
+      <img src="{{ faceread_obj.faceread_image.url }}" width=700 height=auto />
+    </td>
   {% endif %}
 
-{% endblock content %}
+  <br>
+  <h3>例</h3>
+  <td>
+    <img src="/static/faceread/before.jpg" width=700 height=auto />
+    <img src="/static/faceread/faceread.jpg" width=700 height=auto />
+  </td>
 
+{% endblock content %}

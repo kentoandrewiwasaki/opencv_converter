@@ -6,26 +6,27 @@
 {% block content %}
   <h1>モザイク化</h1>
     <p>画像をモザイク処理することができます。</p>
+    <p>※大変申し訳ございませんが、本番環境では動作致しません。</p>
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">変換</button>
   </form>
 
-  {% if mosaic_obj == "" %}
-    <br>
-    <h3>例</h3>
-    <td>
-      <img src="/static/mosaic/before.jpg" width=700 height=auto />
-      <img src="/static/mosaic/mosaic.jpg" width=700 height=auto />
-    </td>
-  {% else %}
+  {% if mosaic_obj != "" %}
     <br>
     <h3>変換結果</h3>
-      <td>
-        <img src="{{ mosaic_obj.image.url }}" width=700 height=auto />
-        <img src="{{ mosaic_obj.mosaic_image.url }}" width=700 height=auto />
-      </td>
+    <td>
+      <img src="{{ mosaic_obj.image.url }}" width=700 height=auto />
+      <img src="{{ mosaic_obj.mosaic_image.url }}" width=700 height=auto />
+    </td>
   {% endif %}
+
+  <br>
+  <h3>例</h3>
+  <td>
+    <img src="/static/mosaic/before.jpg" width=700 height=auto />
+    <img src="/static/mosaic/mosaic.jpg" width=700 height=auto />
+  </td>
 
 {% endblock content %}
