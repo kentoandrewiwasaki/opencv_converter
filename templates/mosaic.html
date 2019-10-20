@@ -6,8 +6,8 @@
 {% block content %}
   <h1>モザイク化</h1>
     <p>画像をモザイク処理することができます。</p>
-    <p>※大変申し訳ございませんが、本番環境では動作致しません。</p>
-  <form method="post" enctype="multipart/form-data">
+    <p>※ローカル環境でのみ作動致します。</p>
+    <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">変換</button>

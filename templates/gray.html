@@ -6,7 +6,7 @@
 {% block content %}
   <h1>グレースケール化</h1>
     <p>画像をグレースケール化することができます。</p>
-    <p>※大変申し訳ございませんが、本番環境では動作致しません。</p>
+    <p>※ローカル環境でのみ作動致します。</p>
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
